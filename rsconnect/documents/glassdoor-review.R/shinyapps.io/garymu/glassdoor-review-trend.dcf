@@ -1,0 +1,13 @@
+name: glassdoor-review-trend
+title: glassdoor-review-trend
+username:
+account: garymu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9022387
+bundleId: 7170662
+url: https://garymu.shinyapps.io/glassdoor-review-trend/
+when: 1683144290.76594
+lastSyncTime: 1683144290.76595
+asMultiple: FALSE
+asStatic: FALSE

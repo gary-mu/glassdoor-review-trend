@@ -21,18 +21,27 @@ library(lexicon)
 # 'Netflix',
 # 'Twitter')
 
-file_path <- '/Users/gmu/Dropbox/R_code/glassdoor_review/data/'
+file_paths <- c(
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/allbirds_2023-04-28_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/apple_2023-04-28_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/bill_and_melinda_gates_foundation_2023-04-28_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/chan_zuckerberg_initiative_2023-04-28_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/google_2023-05-01_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/google_2023-05-01_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/netflix_2023-05-01_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/reforge_2023-04-28_review_data.csv',
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/twitter_2023-05-01_review_data.csv'
+)
+
 
 ##Function to get data 
-get_company_review_data <- function(file_path){
-  files <- list.files(file_path)
-  files <- files[!grepl('archive', files)]
+get_company_review_data <- function(file_paths){
   main_df <- tibble()
   company_names <- c()
-  for(file in files){
-    name <- str_extract(file, "^(.*)_\\d{4}-\\d{2}-\\d{2}_review_data\\.csv$", group = 1)
-    df <- read_csv(paste0(file_path, file)) %>% 
-      mutate(company_name = name)
+  for(file in file_paths){
+    print(paste0('reading: ', file))
+    name <- str_extract(file, ".*data/(.*)_\\d{4}-\\d{2}-\\d{2}_review_data\\.csv$", group = 1)
+    df <- read_csv(file) %>% mutate(company_name = name)
     main_df <- main_df %>% bind_rows(df)
     company_names <- c(company_names, name)
   }
@@ -44,7 +53,7 @@ capitalize_first_letter <- function(name) {
   gsub("(^|\\s)([a-z])", "\\1\\U\\2", name, perl = TRUE)
 }
 
-data <- get_company_review_data(file_path)
+data <- get_company_review_data(file_paths)
 companies <- data$company_names %>% str_replace_all('_', ' ') %>% capitalize_first_letter()
 
 #Get filtered company data
