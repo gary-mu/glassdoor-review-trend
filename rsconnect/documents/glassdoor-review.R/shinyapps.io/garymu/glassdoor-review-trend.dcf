@@ -5,9 +5,9 @@ account: garymu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 9022387
-bundleId: 7170662
+bundleId: 7210623
 url: https://garymu.shinyapps.io/glassdoor-review-trend/
-when: 1683144290.76594
-lastSyncTime: 1683144290.76595
+when: 1683906709.69117
+lastSyncTime: 1683906709.69118
 asMultiple: FALSE
 asStatic: FALSE
