@@ -31,7 +31,8 @@ file_paths <- c(
   'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/netflix_2023-05-01_review_data.csv',
   'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/reforge_2023-04-28_review_data.csv',
   'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/twitter_2023-05-01_review_data.csv',
-  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/grow_therapy_2023-05-08_review_data.csv'
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/grow_therapy_2023-05-08_review_data.csv', 
+  'https://raw.githubusercontent.com/gary-mu/glassdoor-review-trend/main/data/airbnb_2023-05-12_review_data.csv'
 )
 
 
